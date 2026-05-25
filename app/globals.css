@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 
-@theme inline {
-  
+@theme {
+  --shadow-realistic:
+    0px 32px 48px 0px #00000033,
+    0px 16px 48px 0px #0000001F;
 }

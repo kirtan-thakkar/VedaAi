@@ -3,10 +3,11 @@ import Link from "next/link";
 
 const SideBar = () => {
   return (
-    <aside className="flex flex-col h-full w-[304px] bg-white rounded-[16px] px-6 py-6 shadow-sm border border-gray-100">
-      <div className="flex flex-col space-y-8 gap-2">
-        <div className="flex items-center space-x-2">
-          <Image src="/logo.svg" alt="VedaAI Logo" width={80} height={80} className=" rounded-[15px]" />
+    <div className="flex flex-col h-full w-[304px] bg-white rounded-[16px] px-6 py-6  border border-gray-100">
+      <div className="flex flex-col space-y-8 ">
+        <div className="flex items-start -ml-3 justify-start">
+          {/* <Image src="/logo.svg" alt="VedaAI Logo" width={80} height={80} className=" rounded-[15px] -mt-2" /> */}
+          <img src="/logo.svg" alt="VedaAI Logo" className=" rounded-[15px] size-15" />
           <span className="font-bold text-[28px] tracking-[-0.06em] text-black">
             VedaAI
           </span>
@@ -105,7 +106,7 @@ const SideBar = () => {
           </div>
         </div>
       </div>
-    </aside>
+    </div>
   );
 };
 
