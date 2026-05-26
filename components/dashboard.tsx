@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import MobileNav from "@/components/MobileNav";
 import AssignmentsList from "@/components/AssignmentsList";
+import CreateAssignmentForm from "@/components/CreateAssignmentForm";
 
 interface DashboardProps {
   activeTab: string;
@@ -25,10 +26,18 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
   }
 
   const renderContent = () => {
+    if (activeTab === "create-assignment") {
+      return (
+        <div className="flex-1 overflow-hidden relative">
+          <CreateAssignmentForm setActiveTab={setActiveTab} />
+        </div>
+      );
+    }
+    
     if (activeTab === "assignments") {
       return (
         <div className="flex-1 overflow-hidden relative">
-          <AssignmentsList />
+          <AssignmentsList setActiveTab={setActiveTab} />
         </div>
       );
     }
@@ -56,7 +65,7 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
               criteria, and let AI assist with grading.
             </p>
           </div>
-          <button className="flex items-center justify-center space-x-2 bg-black text-white rounded-full py-3.5 px-6 hover:bg-gray-800 transition-colors shadow-md">
+          <button onClick={() => setActiveTab("create-assignment")} className="flex items-center justify-center space-x-2 bg-black text-white rounded-full py-3.5 px-6 hover:bg-gray-800 transition-colors shadow-md">
             <Image src="/plus.svg" alt="Create Assignment" width={16} height={16} />
             <span className="font-medium text-[15px]">
               Create Your First Assignment
@@ -68,10 +77,18 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
   };
 
   const renderMobileContent = () => {
+    if (activeTab === "create-assignment") {
+      return (
+        <div className="flex-1 overflow-hidden relative">
+          <CreateAssignmentForm setActiveTab={setActiveTab} />
+        </div>
+      );
+    }
+
     if (activeTab === "assignments") {
       return (
         <div className="flex-1 overflow-hidden relative">
-          <AssignmentsList />
+          <AssignmentsList setActiveTab={setActiveTab} />
         </div>
       );
     }
@@ -92,7 +109,7 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
               let AI assist with grading.
             </p>
           </div>
-          <button className="flex items-center justify-center space-x-2 bg-[#1e1e1e] text-white rounded-full py-3.5 px-6 hover:bg-black transition-colors shadow-md w-full max-w-[280px]">
+          <button onClick={() => setActiveTab("create-assignment")} className="flex items-center justify-center space-x-2 bg-[#1e1e1e] text-white rounded-full py-3.5 px-6 hover:bg-black transition-colors shadow-md w-full max-w-[280px]">
             <span className="text-xl font-light leading-none">+</span>
             <span className="font-medium text-[15px]">
               Create Your First Assignment
@@ -133,7 +150,7 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
         {renderMobileContent()}
 
         {/* Floating Action Button (FAB) */}
-        <button className="absolute bottom-[104px] right-6 w-14 h-14 bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.1)] flex items-center justify-center text-[#F97316] hover:scale-105 transition-transform z-10">
+        <button onClick={() => setActiveTab("create-assignment")} className="absolute bottom-[104px] right-6 w-14 h-14 bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.1)] flex items-center justify-center text-[#F97316] hover:scale-105 transition-transform z-10">
           <span className="text-3xl font-light leading-none pb-1">+</span>
         </button>
 

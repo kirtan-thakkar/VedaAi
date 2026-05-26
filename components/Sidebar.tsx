@@ -17,7 +17,7 @@ const SideBar = ({ activeTab, setActiveTab }: SideBarProps) => {
           </span>
         </div>
 
-        <button className="flex items-center justify-center space-x-2 bg-black text-white rounded-full py-3 px-4 hover:bg-gray-800 transition-colors shadow-[0_0_15px_rgba(249,115,22,0.2)] border border-orange-500/20">
+        <button onClick={() => setActiveTab("create-assignment")} className="flex items-center justify-center space-x-2 bg-black text-white rounded-full py-3 px-4 hover:bg-gray-800 transition-colors shadow-[0_0_15px_rgba(249,115,22,0.2)] border border-orange-500/20">
           <span className="text-xl leading-none">✨</span>
           <span className="font-medium text-base">Create Assignment</span>
         </button>
