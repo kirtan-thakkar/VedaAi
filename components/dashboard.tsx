@@ -6,6 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import MobileNav from "@/components/MobileNav";
 import AssignmentsList from "@/components/AssignmentsList";
 import CreateAssignmentForm from "@/components/CreateAssignmentForm";
+import AssignmentOutput from "@/components/AssignmentOutput";
 
 interface DashboardProps {
   activeTab: string;
@@ -26,6 +27,14 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
   }
 
   const renderContent = () => {
+    if (activeTab === "assignment-output") {
+      return (
+        <div className="flex-1 overflow-hidden relative">
+          <AssignmentOutput setActiveTab={setActiveTab} />
+        </div>
+      );
+    }
+
     if (activeTab === "create-assignment") {
       return (
         <div className="flex-1 overflow-hidden relative">
@@ -77,6 +86,14 @@ const Dashboard = ({ activeTab, setActiveTab }: DashboardProps) => {
   };
 
   const renderMobileContent = () => {
+    if (activeTab === "assignment-output") {
+      return (
+        <div className="flex-1 overflow-hidden relative">
+          <AssignmentOutput setActiveTab={setActiveTab} />
+        </div>
+      );
+    }
+
     if (activeTab === "create-assignment") {
       return (
         <div className="flex-1 overflow-hidden relative">
